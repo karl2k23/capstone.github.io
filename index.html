@@ -24,7 +24,7 @@ fetch('fetch_data.php')
     data.forEach(row => {
       const newRow = table.insertRow(-1);
       newRow.insertCell(0).textContent = row.ID;
-      newRow.insertCell(1).textContent = row.TIMESTAMP;
+      newRow.insertCell(1).textContent = row.RECORDED_DATA;
       newRow.insertCell(2).textContent = row.WATERLEVEL;
       newRow.insertCell(3).textContent = row.TEMPERATURE;
       newRow.insertCell(4).textContent = row.HUMIDITY;
