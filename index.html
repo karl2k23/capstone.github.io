@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display Sensor Data</title>
+</head>
+<body>
+
+<table cellspacing="5" cellpadding="5" id="sensorData">
+  <tr> 
+    <td>ID</td> 
+    <td>Timestamp</td> 
+    <td>Water Level</td> 
+    <td>Temperature</td> 
+    <td>Humidity</td> 
+  </tr>
+</table>
+
+<script>
+fetch('fetch_data.php')
+  .then(response => response.json())
+  .then(data => {
+    const table = document.getElementById('sensorData');
+
+    data.forEach(row => {
+      const newRow = table.insertRow(-1);
+      newRow.insertCell(0).textContent = row.ID;
+      newRow.insertCell(1).textContent = row.TIMESTAMP;
+      newRow.insertCell(2).textContent = row.WATERLEVEL;
+      newRow.insertCell(3).textContent = row.TEMPERATURE;
+      newRow.insertCell(4).textContent = row.HUMIDITY;
+    });
+  })
+  .catch(error => console.error('Error fetching data:', error));
+</script>
+
+</body>
+</html>
