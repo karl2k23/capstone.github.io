@@ -21,24 +21,26 @@
     </table>
 
     <script>
-        fetch('/data')
-            .then(response => response.json())
-            .then(data => {
-                const tableBody = document.getElementById('data-body');
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.getElementById('data-body');
 
-                data.data.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${item.id}</td>
-                        <td>${item.waterlevel}</td>
-                        <td>${item.temperature}</td>
-                        <td>${item.humidity}</td>
-                        <td>${item.timestamp}</td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-            })
-            .catch(error => console.error('Error:', error));
+                    data.data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.id}</td>
+                            <td>${item.waterlevel}</td>
+                            <td>${item.temperature}</td>
+                            <td>${item.humidity}</td>
+                            <td>${item.timestamp}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
     </script>
 </body>
 </html>
