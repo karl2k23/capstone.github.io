@@ -16,7 +16,7 @@ def get_data():
         conn = pymysql.connect(host=servername, user=username, password=password, database=dbname)
         cursor = conn.cursor()
 
-        # SQL query
+        # SQL query to retrieve data
         sql = "SELECT id, waterlevel, temperature, humidity, timestamp FROM ESPDATA ORDER BY id DESC"
 
         # Execute the query
@@ -29,7 +29,7 @@ def get_data():
         cursor.close()
         conn.close()
 
-        # Format data as a list of dictionaries
+        # Format fetched data into a list of dictionaries
         data = []
         for row in rows:
             data.append({
@@ -37,7 +37,7 @@ def get_data():
                 "waterlevel": row[1],
                 "temperature": row[2],
                 "humidity": row[3],
-                "timestamp": row[4]
+                "timestamp": row[4].strftime("%Y-%m-%d %H:%M:%S") if row[4] else ""
             })
 
         return jsonify({"data": data})
