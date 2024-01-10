@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Display</title>
+</head>
+<body>
+    <h1>Data from Database</h1>
+    <table id="data-table" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Water Level</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="data-body">
+            <!-- Data will be dynamically loaded here -->
+        </tbody>
+    </table>
+
+    <script>
+        fetch('/data')
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById('data-body');
+
+                data.data.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.id}</td>
+                        <td>${item.waterlevel}</td>
+                        <td>${item.temperature}</td>
+                        <td>${item.humidity}</td>
+                        <td>${item.timestamp}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
