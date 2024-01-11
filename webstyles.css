@@ -1,0 +1,479 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    background: black;  
+}
+
+
+
+
+.title1, .title2 {
+    color: white;
+    text-indent: 15px;
+}
+
+.title1 {
+    padding-top: 30px;
+}
+
+
+
+
+
+#logo {
+    float: left;
+    margin-left: 25px;
+    margin-right: 10px;
+    margin-top: 12.5px;
+    width: 75px; 
+    height: 75px; 
+}
+
+#login {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    background: white;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 7px 15px;
+    transition: 0.5;
+    border-radius: 15px;
+}
+
+#login:hover {
+    background: var(--clr);
+    color: var(--clr);
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px var(--clr);
+}
+
+#login:before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: black;
+    border-width: 20px;
+    border-radius: 15px;
+}
+
+#login span {
+    position: relative;
+    z-index: 1;
+}
+
+#login i {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+#login i::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10%;
+    height: 4px;
+    background: black;
+    transform: translate(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+#login:hover i::before {
+    width: 20px;
+    left: 20%;
+}
+
+#login i::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 10%;
+    height: 4px;
+    background: black;
+    transform: translate(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+#login:hover i::after {
+    width: 20px;
+    left: 80%;
+}
+
+
+
+
+#col {
+    width: 100%;
+    display: inline-block;
+}
+
+.content-table {
+    display:block;
+    float: left;
+    
+    font-family: sans-serif;
+    border-collapse: collapse;
+    margin: 19px 1.5%;
+    font-size: 0.9em;
+    width: 45%;
+    border-radius: 10px 10px 0 0;
+    overflow: auto; /* This enables the scrollbar */
+    box-shadow: 2px 2px 30px rgb(51, 50, 50);
+    height: 415px; /* Setting the maximum height */
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+    text-align: center; /* Centering the content */
+}
+
+.content-table thead {
+    background-color: #009879;
+    border-radius: 10px 10px 0 0; 
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.content-table th {
+    height: 20px; /* Set the height for table header cells */
+}
+
+.content-table tbody {
+    display: block;
+    overflow-y: auto;
+    height: calc(100% - 39px);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.content-table thead,
+.content-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Fixes column width */
+}
+
+.content-table th,
+.content-table td {
+    padding: 8px 8px;
+}
+
+.content-table tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+}
+
+.content-table tbody::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.content-table tbody::-webkit-scrollbar-thumb {
+    background-color: #009879; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Border radius of the thumb */
+}
+
+.content-table tbody td {
+    border-right: 1px solid #ddd; /* Vertical line between columns */
+}
+
+.content-table tbody td:last-child {
+    border-right: none; /* Remove the border for the last column */
+}
+
+
+
+
+.col2 {
+    width: 51%;
+    float: left;
+    margin-top: 1.5%;
+    position: relative;
+}
+
+#data-result h3 {
+    margin-top: 6%;
+}
+#data-result {
+    display: inline-block;
+    background-color: white;
+    width: 30.5%;
+    height: 150px;
+    margin-right: 2.44%;
+    margin-bottom: 1%;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 5px 7px 10px rgb(43, 42, 42);
+}
+
+.gauge1, .gauge2, .gauge3 
+{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5%;
+    display: inline-block;
+    width: 70%;
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    color: #004033;
+}
+  
+  .gauge__body {
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+    background: #b4c0be;
+    position: relative;
+    border-top-left-radius: 100% 200%;
+    border-top-right-radius: 100% 200%;
+    overflow: hidden;
+  }
+  
+  .gauge__fill {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: inherit;
+    height: 100%;
+    transform-origin: center top;
+    transform: rotate(0.25turn);
+    transition: transform 0.2s ease-out;
+  }
+  
+  .gauge1 .gauge__fill{
+    background: red;
+  }
+
+  .gauge2 .gauge__fill{
+    background: blue;
+  }
+
+  .gauge3 .gauge__fill{
+    background: green;
+  }
+
+  .gauge__cover {
+    width: 75%;
+    height: 150%;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 25%;
+    box-sizing: border-box;
+  }
+
+  
+
+
+#info {
+    display: inline-block;
+    background-color: #e1306c;
+    width: 49%;
+    height: 257px;
+    margin-bottom: 1%;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+}
+
+#contact {
+    margin-left: 1%;
+    width: 32%;
+}
+
+#contact, #follow, #about {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#foot3 i, #foot4 i {
+    background-color:#33383b;
+    color: #ffffff;
+    font-size: 12px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    margin: 2px 15px;
+    margin-left: 15%;
+}
+
+#foot4 i {
+    margin-bottom: 6px;
+}
+
+#foot1 {
+    color: #ffffff;
+    font: normal 20px 'Cookie', cursive;
+}
+
+#foot1 span {
+    color: yellow;
+}
+
+#foot4 a{
+    color: yellow;
+    text-decoration: none;
+}
+
+#follow {
+    margin-left: 1%;
+    width: 32%;
+}
+#follow h3 {
+    color: #ffffff;
+    font: normal 20px 'Cookie', cursive;
+}
+
+#follow h3 span {
+    color:yellow;
+}
+
+.wrapper{
+    display: inline-flex;
+}
+
+.wrapper .icon{
+    margin-top: 5px;
+    margin-left: 25%;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon span{
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    color: yellow;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 1px 10px grey;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .wrapper .icon span i{
+    line-height: 35px;
+    font-size: 15px;
+  }
+
+  .wrapper .icon .tooltip{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 25px;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .wrapper .icon:hover .tooltip{
+    top: 45px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .wrapper .icon:hover span{
+    color: #fff;
+  }
+
+  .wrapper .facebook:hover span,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip:before{
+    background: #3B5999;
+  }
+
+  .wrapper .twitter:hover span,
+  .wrapper .twitter:hover .tooltip,
+  .wrapper .twitter:hover .tooltip:before{
+    background: #46C1F6;
+  }
+
+  .wrapper .instagram:hover span,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip:before{
+    background: #e1306c;
+  }
+
+  .wrapper .youtube:hover span,
+  .wrapper .youtube:hover .tooltip,
+  .wrapper .youtube:hover .tooltip:before{
+    background: #DE463B;
+  }
+
+#about {
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 32%;
+    position: inherit;
+}
+
+#about h3 {
+    color: #ffffff;
+    font: normal 20px 'Cookie', cursive;
+}
+
+#about h3 span {
+    color: yellow;
+}
+
+#about p {
+    margin-left: 15%;
+    text-align: justify;
+}
+
+#about a {
+    margin-right: 5%;
+    color: yellow;
+}
+
+#vertical_line {
+    width: 100%;
+    height: 1.3%;
+    background-color: grey;
+    position: absolute;
+}
+
+#copyright {
+    margin-top: 6px;
+    margin-bottom: 3px;
+    border: 0;
+    bottom: -76px;
+    text-align: center;
+}
